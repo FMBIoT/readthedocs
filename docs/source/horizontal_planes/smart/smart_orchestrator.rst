@@ -49,15 +49,14 @@ The five elements which compose the enabler are:
 ***************
 User guide
 ***************
-The enabler has a management API REST made to interact with the user. The request payload changes depending on the kind of endpoint, in contrast with the response format which is always a json
-composed by two keys: status and msg.
+The enabler has a management API that provides a flash-based REST interface that can be interacted with to configure certain values. The url must include not only the address of the enabler, but also the action to be performed and the message body if necessary. The response shall include the requested information or the result of the execution of a command.
 
 +--------+------------------------------------------------------------------+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
 | Method |             Endpoint                                             | Description                   | Payload                                                                                                                        |
 +========+==================================================================+===============================+================================================================================================================================+
 |  GET   | /api/k8sclusters/                                                | Return clusters               |                                                                                                                                | 
 +--------+------------------------------------------------------------------+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-|  POST  | /api/k8sclusters/                                                | Add a cluster                 | {"name": String, "description": String, "credentials": {},	"k8s_version": String}                                             |
+|  POST  | /api/k8sclusters/                                                | Add a cluster                 | {"name": String, "description": String, "credentials": Object,	"k8s_version": String}                                       |
 +--------+------------------------------------------------------------------+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
 | DELETE | api/k8sclusters/:id                                              | Delete a cluster by id        |                                                                                                                                |
 +--------+------------------------------------------------------------------+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
@@ -69,7 +68,7 @@ composed by two keys: status and msg.
 +--------+------------------------------------------------------------------+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
 |  GET   | /api/enabler/instanced                                           | Return the instanced enablers |                                                                                                                                | 
 +--------+------------------------------------------------------------------+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-|  POST  | /api/enabler/                                                    | Instantiate an enabler        | {"enablerName": String,"helmChart": String, "additionalParams": {},"vim": String, "auto": Boolean,"placementPolicy": String }  | 
+|  POST  | /api/enabler/                                                    | Instantiate an enabler        |{"enablerName": String,"helmChart": String, "additionalParams": Object,"vim": String, "auto": Boolean,"placementPolicy": String}| 
 +--------+------------------------------------------------------------------+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
 |  POST  | /api/enabler/:id /terminate                                      | Terminate an enabler by id    |                                                                                                                                | 
 +--------+------------------------------------------------------------------+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
@@ -77,6 +76,7 @@ composed by two keys: status and msg.
 +--------+------------------------------------------------------------------+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
 |  POST  | /api/login/tokens                                                | Login                         | {"username": String ,"password": String}                                                                                       |
 +--------+------------------------------------------------------------------+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
+
 
 ***************
 Prerequisites
