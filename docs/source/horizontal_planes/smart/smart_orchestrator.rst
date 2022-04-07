@@ -79,15 +79,18 @@ composed by two keys: status and msg.
 Prerequisites
 ***************
 The prerequisites to install the Smart Orchestrator enabler are:
-- MINIMUM: 2 CPUs, 6 GB RAM, 40GB disk and a single interface with Internet access
-- RECOMMENDED: 2 CPUs, 8 GB RAM, 40GB disk and a single interface with Internet access
-- Base image: Ubuntu20.04 (64-bit variant required)
+
+  - MINIMUM: 2 CPUs, 6 GB RAM, 40GB disk and a single interface with Internet access
+  - RECOMMENDED: 2 CPUs, 8 GB RAM, 40GB disk and a single interface with Internet access
+  - Base image: Ubuntu20.04 (64-bit variant required)
+
 ***************
 Installation
 ***************
 The installation is run by a script. This script can be download from the url:
 Before running it, type the next commands:
-  1. cd scriptfolder
+
+  1. cd scriptfolder/
     
   2. chmod +x smartOrchestrator.sh
     
@@ -97,18 +100,22 @@ Before running it, type the next commands:
 Configuration options
 *********************
 TBD
+
 ***************
 Developer guide
 ***************
 TBD
+
 ***************************
 Version control and release
 ***************************
 Version 0.1. Under development.
+
 ***************
 License
 ***************
 TBD
+
 ********************
 Notice(dependencies)
 ********************
