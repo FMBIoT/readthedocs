@@ -32,6 +32,8 @@ Smart Orchestrator enabler is located in the Smart Network and Control plane of 
 ASSIST-IoT  nodes/components  work  in  parallel,  in  a  decentralized  way,  and  communicate  seamlessly,  ensuring low latency, resilient and secure communication. The smart orchestrator
 is responsible for monitoring the enablers state and collect data from clusters to schedule the enablers the best possible way regarding the CPU or memory. 
 
+.. image:: https://user-images.githubusercontent.com/47482673/162279229-29151eda-9246-45e3-b20e-3d8a9f3c340b.PNG
+
 
 The five elements which compose the enabler are:
 
@@ -43,6 +45,7 @@ The five elements which compose the enabler are:
 
 - **Scheduler**: Provides the logic to place the enablers depending on the resources availabe in the kubernetes clusters joined.
 
+.. image:: https://user-images.githubusercontent.com/47482673/162279761-ce23e6c6-9c0c-4d0c-b2d3-150fe7c34843.PNG
 ***************
 User guide
 ***************
