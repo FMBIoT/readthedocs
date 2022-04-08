@@ -34,6 +34,8 @@ is responsible for monitoring the enablers state and collect data from clusters 
 
 .. image:: https://user-images.githubusercontent.com/47482673/162279229-29151eda-9246-45e3-b20e-3d8a9f3c340b.PNG
 
+.. image:: https://user-images.githubusercontent.com/47482673/162279229-29151eda-9246-45e3-b20e-3d8a9f3c340b.PNG
+
 
 The five elements which compose the enabler are:
 
@@ -49,8 +51,7 @@ The five elements which compose the enabler are:
 ***************
 User guide
 ***************
-The enabler has a management API REST made to interact with the user. The request payload changes depending on the kind of endpoint, in contrast with the response format which is always a json
-composed by two keys: status and msg.
+The enabler has a management API that provides a flash-based REST interface that can be interacted with to configure certain values. The url must include not only the address of the enabler, but also the action to be performed and the message body if necessary. The response shall include the requested information or the result of the execution of a command.
 
 +--------+------------------------------------------------------------------+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
 | Method |             Endpoint                                             | Description                   | Payload                                                                                                                        |
