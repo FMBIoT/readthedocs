@@ -30,12 +30,14 @@ Place in architecture
 *********************
 Smart Orchestrator enabler is located in the Smart Network and Control plane of the ASSIST-IoT architecture set up to provide an smart,  dynamic  and  auto-configurable  network  infrastructure,  in  which  all
 ASSIST-IoT  nodes/components  work  in  parallel,  in  a  decentralized  way,  and  communicate  seamlessly,  ensuring low latency, resilient and secure communication. The smart orchestrator
-is responsible for monitoring the enablers state and collect data from clusters to schedule the enablers the best possible way regarding the CPU or memory. 
+is responsible for monitoring the enablers state and collect data from clusters to schedule the enablers the best possible way depending on the CPU and memory. 
+
+.. image:: https://user-images.githubusercontent.com/47482673/162279229-29151eda-9246-45e3-b20e-3d8a9f3c340b.PNG
 
 
 The five elements which compose the enabler are:
 
-- **API REST**: The entry component to interact with the user and in charge of communicating with the other components to GET, POST or DELETE request for the different resources such as enablers, clusters or repositories.
+- **API REST**: The entry component to interact with the user and in charge of communicating with the other components to get, add or delete the different resources such as enablers, clusters or repositories.
 
 - **OSM**: Controls the whole lifecycle of Containerized Network Functions (CNFs), from their instantiation to their termination, allowing their deployment in any k8s cluster available.
 
@@ -43,6 +45,7 @@ The five elements which compose the enabler are:
 
 - **Scheduler**: Provides the logic to place the enablers depending on the resources availabe in the kubernetes clusters joined.
 
+.. image:: https://user-images.githubusercontent.com/47482673/162279761-ce23e6c6-9c0c-4d0c-b2d3-150fe7c34843.PNG
 ***************
 User guide
 ***************
@@ -54,7 +57,7 @@ composed by two keys: status and msg.
 +========+==================================================================+===============================+================================================================================================================================+
 |  GET   | /api/k8sclusters/                                                | Return clusters               |                                                                                                                                | 
 +--------+------------------------------------------------------------------+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-|  POST  | /api/k8sclusters/                                                | Add a cluster                 | {"name": String, "description": String, "credentials": {},	"k8s_version": String}                                             |
+|  POST  | /api/k8sclusters/                                                | Add a cluster                 | {"name": String, "description": String, "credentials": Object,	"k8s_version": String}                                       |
 +--------+------------------------------------------------------------------+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
 | DELETE | api/k8sclusters/:id                                              | Delete a cluster by id        |                                                                                                                                |
 +--------+------------------------------------------------------------------+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
@@ -66,7 +69,7 @@ composed by two keys: status and msg.
 +--------+------------------------------------------------------------------+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
 |  GET   | /api/enabler/instanced                                           | Return the instanced enablers |                                                                                                                                | 
 +--------+------------------------------------------------------------------+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-|  POST  | /api/enabler/                                                    | Instantiate an enabler        | {"enablerName": String,"helmChart": String, "additionalParams": {},"vim": String, "auto": Boolean,"placementPolicy": String }  | 
+|  POST  | /api/enabler/                                                    | Instantiate an enabler        |{"enablerName": String,"helmChart": String, "additionalParams": Object,"vim": String, "auto": Boolean,"placementPolicy": String}| 
 +--------+------------------------------------------------------------------+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
 |  POST  | /api/enabler/:id /terminate                                      | Terminate an enabler by id    |                                                                                                                                | 
 +--------+------------------------------------------------------------------+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
@@ -75,19 +78,23 @@ composed by two keys: status and msg.
 |  POST  | /api/login/tokens                                                | Login                         | {"username": String ,"password": String}                                                                                       |
 +--------+------------------------------------------------------------------+-------------------------------+--------------------------------------------------------------------------------------------------------------------------------+
 
+
 ***************
 Prerequisites
 ***************
 The prerequisites to install the Smart Orchestrator enabler are:
-- MINIMUM: 2 CPUs, 6 GB RAM, 40GB disk and a single interface with Internet access
-- RECOMMENDED: 2 CPUs, 8 GB RAM, 40GB disk and a single interface with Internet access
-- Base image: Ubuntu20.04 (64-bit variant required)
+
+  - MINIMUM: 2 CPUs, 6 GB RAM, 40GB disk and a single interface with Internet access
+  - RECOMMENDED: 2 CPUs, 8 GB RAM, 40GB disk and a single interface with Internet access
+  - Base image: Ubuntu20.04 (64-bit variant required)
+
 ***************
 Installation
 ***************
 The installation is run by a script. This script can be download from the url:
 Before running it, type the next commands:
-  1. cd scriptfolder
+
+  1. cd scriptfolder/
     
   2. chmod +x smartOrchestrator.sh
     
@@ -97,18 +104,22 @@ Before running it, type the next commands:
 Configuration options
 *********************
 TBD
+
 ***************
 Developer guide
 ***************
 TBD
+
 ***************************
 Version control and release
 ***************************
 Version 0.1. Under development.
+
 ***************
 License
 ***************
 TBD
+
 ********************
 Notice(dependencies)
 ********************
